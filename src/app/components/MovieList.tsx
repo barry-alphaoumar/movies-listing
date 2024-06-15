@@ -62,7 +62,7 @@ export default function MovieList() {
                 </div>
 
             </ul>
-            <div>
+            <div className='mt-6 flex justify-between'>
                 <button
                     onClick={() => handlePageChange(currentPage - 1)}
                     disabled={currentPage === 1}
