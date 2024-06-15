@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../redux/store';
-import { clearFilter, setFilter } from '../redux/slices/moviesSlice';
+import { clearFilter, setCurrentPage, setFilter } from '../redux/slices/moviesSlice';
 
 export default function FilterSelect() {
     const dispatch = useDispatch();
@@ -15,10 +15,12 @@ export default function FilterSelect() {
     const handleCategoryChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         const selectedOptions = Array.from(event.target.selectedOptions, option => option.value);
         setSelectedCategories(selectedOptions);
+        dispatch(setCurrentPage(1));
         dispatch(setFilter(selectedOptions));
     };
 
     const handleClearFilter = () => {
+        dispatch(setCurrentPage(1));
         dispatch(clearFilter());
     };
 
