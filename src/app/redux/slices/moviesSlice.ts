@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { movies$ } from '../../mock/movies'; // Assuming movies.js is in the root
+import { movies$ } from '../../mock/movies';
 
 export interface Movie {
     id: string;
@@ -14,11 +14,15 @@ export interface Movie {
 interface MoviesState {
     movies: Movie[];
     filteredCategories: string[];
+    currentPage: number;
+    itemsPerPage: number;
 }
 
 const initialState: MoviesState = {
     movies: [],
     filteredCategories: [],
+    currentPage: 1,
+    itemsPerPage: 4
 };
 
 export const moviesSlice = createSlice({
@@ -46,10 +50,16 @@ export const moviesSlice = createSlice({
         setFilter: (state, action: PayloadAction<string[]>) => {
             state.filteredCategories = action.payload;
         },
+        setCurrentPage: (state, action: PayloadAction<number>) => {
+            state.currentPage = action.payload;
+        },
+        setItemsPerPage: (state, action: PayloadAction<number>) => {
+            state.itemsPerPage = action.payload;
+        },
     },
 });
 
-export const { setMovies, likeMovie, dislikeMovie, deleteMovie, setFilter } = moviesSlice.actions;
+export const { setMovies, likeMovie, dislikeMovie, deleteMovie, setFilter, setCurrentPage, setItemsPerPage } = moviesSlice.actions;
 
 export default moviesSlice.reducer;
 
