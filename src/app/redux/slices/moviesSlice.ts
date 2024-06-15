@@ -50,6 +50,9 @@ export const moviesSlice = createSlice({
         setFilter: (state, action: PayloadAction<string[]>) => {
             state.filteredCategories = action.payload;
         },
+        clearFilter: (state) => {
+            state.filteredCategories = [];
+        },
         setCurrentPage: (state, action: PayloadAction<number>) => {
             state.currentPage = action.payload;
         },
@@ -59,7 +62,7 @@ export const moviesSlice = createSlice({
     },
 });
 
-export const { setMovies, likeMovie, dislikeMovie, deleteMovie, setFilter, setCurrentPage, setItemsPerPage } = moviesSlice.actions;
+export const { setMovies, likeMovie, dislikeMovie, deleteMovie, setFilter, setCurrentPage, setItemsPerPage, clearFilter } = moviesSlice.actions;
 
 export default moviesSlice.reducer;
 
