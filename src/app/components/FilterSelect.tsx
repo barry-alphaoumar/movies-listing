@@ -22,6 +22,7 @@ export default function FilterSelect() {
     const handleClearFilter = () => {
         dispatch(setCurrentPage(1));
         dispatch(clearFilter());
+        setSelectedCategories([]);
     };
 
     return (
