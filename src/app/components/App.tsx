@@ -1,5 +1,5 @@
 import MovieList from '../components/MovieList';
-import FilterSelect from './FilterSelect/FilterSelect';
+import FilterSelect from './FilterSelect';
 import { fetchMovies } from '../redux/slices/moviesSlice';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
