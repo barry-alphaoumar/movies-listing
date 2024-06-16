@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../../redux/store';
-import { clearFilter, setCurrentPage, setFilter } from '../../redux/slices/moviesSlice';
+import { RootState } from '../redux/store';
+import { clearFilter, setCurrentPage, setFilter } from '../redux/slices/moviesSlice';
 
 export default function FilterSelect() {
     const dispatch = useDispatch();
